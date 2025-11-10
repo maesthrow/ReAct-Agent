@@ -1,0 +1,103 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer log_processing
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# PyCharm
+.idea/
+*.iml
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+.env
+.env.*
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# VSCode
+.vscode/
+
+# ML/DL specific
+*.h5
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.log
+*.pb
+runs/
+log_processing/
+
+# Datasets and outputs
+data/
+output/
+*.csv
+*.zip
+*.tar.gz
+
+# Docker
+*.pid
+*.log
+docker-compose.override.yml
+
+# MacOS
+.DS_Store
+
+alembic/versions/__pycache__/
+
+
+/.idea/
