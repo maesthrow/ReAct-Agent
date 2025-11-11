@@ -6,7 +6,7 @@ from langchain_gigachat.chat_models import GigaChat
 load_dotenv()
 GIGA_AUTH_DATA = os.getenv("GIGA_AUTH_DATA")
 
-llm = GigaChat(credentials=os.getenv("GIGA_AUTH_DATA"), verify_ssl_certs=False)
+llm = GigaChat(credentials=GIGA_AUTH_DATA, verify_ssl_certs=False)
 
 today = date.today().strftime("%d.%m.%Y")  # DD.MM.YYYY
 system_prompt = f"Сегодня {today}. Ты полезный ассистент. Вежливо, кратко и по делу отвечай на вопросы."

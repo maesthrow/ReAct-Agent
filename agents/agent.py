@@ -20,6 +20,16 @@ GIGA_AUTH_DATA = os.getenv("GIGA_AUTH_DATA")
 llm = GigaChat(credentials=GIGA_AUTH_DATA, verify_ssl_certs=False)
 
 
+# ── search_web ──────────────────────────────────────────────
+
+@tool("search_web", description="Ищет в DuckDuckGo (RU, неделя, 5 ссылок)")
+def search_web(query: str, max_results: int = 5) -> str:
+    with DDGS() as ddgs:
+        hits = ddgs.text(query, region="ru-ru", time="w", max_results=max_results)
+        return "\n".join(f"{hit['title']}: {hit['body']} "
+                         f"-- {hit['href']}" for hit in hits[:max_results])
+
+
 # ── append_to_file ──────────────────────────────────────────
 
 class AppendArgs(BaseModel):
@@ -37,15 +47,6 @@ def append_to_file(query: str, content: str) -> str:
     with path.open("a", encoding="utf-8") as f:
         f.write(f"{stamp} {query}: {content.rstrip()}\n")
     return f"✅ Записано в {path.name}"
-
-
-# ── search_web ──────────────────────────────────────────────
-
-@tool("search_web", description="Ищет в DuckDuckGo (RU, неделя, 5 ссылок)")
-def search_web(query: str, max_results: int = 5) -> str:
-    with DDGS() as ddgs:
-        hits = ddgs.text(query, region="ru-ru", time="w", max_results=max_results)
-        return "\n".join(f"{hit['title']}: {hit['body']} -- {hit['href']}" for hit in hits[:max_results])
 
 
 # ── агент ───────────────────────────────────────────────────────
